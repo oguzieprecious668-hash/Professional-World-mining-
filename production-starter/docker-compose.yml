@@ -1,0 +1,51 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: pm_starter
+      POSTGRES_USER: pm_local
+      POSTGRES_PASSWORD: local_only_change_me
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pm-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pm_local -d pm_starter"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    image: node:22-alpine
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - pm-node-modules:/workspace/node_modules
+    command: sh -c "npm install && npm run dev:api"
+    env_file:
+      - apps/api/.env
+    environment:
+      DATABASE_URL: postgresql://pm_local:local_only_change_me@postgres:5432/pm_starter
+    ports:
+      - "127.0.0.1:4000:4000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  web:
+    image: node:22-alpine
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - pm-node-modules:/workspace/node_modules
+    command: sh -c "npm install && npm run dev:web -- --hostname 0.0.0.0"
+    env_file:
+      - apps/web/.env.local
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      - api
+
+volumes:
+  pm-postgres:
+  pm-node-modules:
