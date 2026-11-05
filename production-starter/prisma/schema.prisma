@@ -1,0 +1,87 @@
+// Reference schema only; no migration has been run against a live database.
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AccountStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+  CLOSED
+}
+
+enum RoleName {
+  USER
+  SUPPORT
+  COMPLIANCE_REVIEWER
+  ADMIN
+}
+
+enum KycStatus {
+  NOT_STARTED
+  PENDING
+  NEEDS_REVIEW
+  VERIFIED
+  REJECTED
+  EXPIRED
+}
+
+model User {
+  id              String         @id @default(uuid()) @db.Uuid
+  // OIDC subject from the chosen identity provider; never a password.
+  identitySubject String         @unique
+  email           String         @unique
+  status          AccountStatus  @default(PENDING)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  roles           UserRole[]
+  kycCases        KycCase[]
+  auditEvents     AuditEvent[]   @relation("AuditActor")
+
+  @@index([status, createdAt])
+}
+
+model UserRole {
+  userId    String   @db.Uuid
+  role      RoleName
+  grantedAt DateTime @default(now())
+  grantedBy String?  @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, role])
+  @@index([role])
+}
+
+model KycCase {
+  id                String    @id @default(uuid()) @db.Uuid
+  userId            String    @db.Uuid
+  provider          String
+  // Opaque vendor reference only; never store raw documents or raw provider payloads here.
+  providerReference String?   @unique
+  status            KycStatus @default(NOT_STARTED)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, status])
+  @@index([status, updatedAt])
+}
+
+model AuditEvent {
+  id          String   @id @default(uuid()) @db.Uuid
+  actorUserId String?  @db.Uuid
+  action      String
+  targetType  String?
+  targetId    String?
+  requestId   String?
+  createdAt   DateTime @default(now())
+  actor       User?    @relation("AuditActor", fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([actorUserId, createdAt])
+  @@index([targetType, targetId])
+}
