@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Transactions | ProfessionalMining</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-mark">P</div>
+        <div>
+          <span>ProfessionalMining</span>
+          <small>Digital asset platform</small>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="wallets.html">Wallets</a>
+        <a href="transactions.html" class="active">Transactions</a>
+        <a href="kyc.html">KYC</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="login.html">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <div class="container">
+      <div class="page-header">
+        <div class="eyebrow">Transactions</div>
+        <h1>Recent account activity</h1>
+      </div>
+
+      <div class="panel large-panel">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Type</th>
+              <th>Asset</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TX-101</td>
+              <td>Deposit</td>
+              <td>BTC</td>
+              <td>0.42</td>
+              <td><span class="badge success">Confirmed</span></td>
+              <td>2026-06-10</td>
+            </tr>
+            <tr>
+              <td>TX-218</td>
+              <td>Withdraw</td>
+              <td>ETH</td>
+              <td>2.50</td>
+              <td><span class="badge warning">Pending</span></td>
+              <td>2026-06-12</td>
+            </tr>
+            <tr>
+              <td>TX-337</td>
+              <td>Transfer</td>
+              <td>USDT</td>
+              <td>1200</td>
+              <td><span class="badge success">Completed</span></td>
+              <td>2026-06-14</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
