@@ -1,0 +1,10 @@
+# Never commit real environment files, credentials, or customer data.
+.env
+.env.*
+!.env.example
+node_modules/
+.next/
+dist/
+coverage/
+*.log
+.DS_Store

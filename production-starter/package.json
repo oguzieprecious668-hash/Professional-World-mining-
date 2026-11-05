@@ -1,0 +1,11 @@
+{
+  "name": "professionalmining-production-starter",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev:web": "npm run dev -w @pm/web",
+    "dev:api": "npm run dev -w @pm/api",
+    "build": "npm run build -w @pm/web && npm run build -w @pm/api",
+    "typecheck": "npm run typecheck -w @pm/web && npm run typecheck -w @pm/api"
+  }
+}

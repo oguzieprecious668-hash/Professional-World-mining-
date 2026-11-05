@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: pm_starter
+      POSTGRES_USER: pm_local
+      POSTGRES_PASSWORD: local_only_change_me
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pm-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pm_local -d pm_starter"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  pm-postgres:
