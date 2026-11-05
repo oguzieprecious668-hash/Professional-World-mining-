@@ -3,55 +3,81 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ProfessionalMining | Educational Demo</title>
-  <meta name="description" content="An educational, simulated digital-asset interface. No financial services are offered." />
+  <meta name="description" content="A clean, educational interface mockup for exploring digital asset concepts." />
+  <meta name="theme-color" content="#071119" />
+  <title>ProfessionalMining — Digital Asset Education</title>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="index.html"><div class="brand-mark">P</div><div><span>ProfessionalMining</span><small>Educational demo</small></div></a>
+      <a class="brand" href="index.html" aria-label="ProfessionalMining home">
+        <div class="brand-mark">P</div>
+        <div><span>ProfessionalMining</span><small>Educational interface</small></div>
+      </a>
       <nav class="main-nav" aria-label="Main navigation">
-        <a class="active" href="index.html">Home</a><a href="about.html">About</a><a href="pricing.html">Plans</a><a href="dashboard.html">Dashboard</a><a href="support.html">Support</a>
+        <a class="active" href="#home">Overview</a>
+        <a href="#learn">Explore</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <div class="nav-actions"><a class="btn btn-secondary" href="login.html">Account access</a></div>
     </div>
   </header>
-  <main>
-    <section class="hero"><div class="container hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow">Educational interface preview</div>
-        <h1>Explore digital-asset concepts with sample data.</h1>
-        <p class="lead">This is a non-financial design demo. It does not offer mining, trading, staking, custody, investment services, or financial returns.</p>
-        <div class="cta-row"><a class="btn btn-primary" href="dashboard.html">View simulated dashboard</a><a class="btn btn-secondary" href="about.html">About this demo</a></div>
-        <div class="notice">All figures and examples shown on this site are simulated placeholders—not live prices, account balances, transaction records, user activity, or performance.</div>
-      </div>
-      <div class="hero-panel"><div class="market-card">
-        <div class="mini-head"><span>Illustrative market panel</span><span class="badge warning">Simulated</span></div>
-        <div class="price-list">
-          <div class="price-item"><strong><span class="coin btc">₿</span> BTC</strong><span>Sample only</span></div>
-          <div class="price-item"><strong><span class="coin eth">Ξ</span> ETH</strong><span>Sample only</span></div>
-          <div class="price-item"><strong><span class="coin usdt">₮</span> USDT</strong><span>Sample only</span></div>
-          <div class="price-item"><strong><span class="coin sol">S</span> SOL</strong><span>Sample only</span></div>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">A digital asset learning mockup</div>
+          <h1>Understand the ideas behind digital assets.</h1>
+          <p class="lead">A calm, clear interface concept for learning about blockchain terminology and portfolio design—without accounts, payments, or financial services.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#learn">Explore the mockup</a>
+            <a class="btn btn-secondary" href="#about">What this is</a>
+          </div>
+          <p class="muted">No signup. No wallet connection. No personal information requested.</p>
         </div>
-      </div></div>
-    </div></section>
-    <section class="section"><div class="container">
-      <div class="section-heading"><div class="eyebrow">Demo features</div><h2>Interface concepts, without real accounts or funds.</h2></div>
-      <div class="card-grid">
-        <article class="info-card"><h3>Portfolio layout</h3><p>Explore a sample dashboard layout. It contains no connected account data or actual balance.</p></article>
-        <article class="info-card"><h3>Wallet concepts</h3><p>Learn how a wallet overview might be organized. No wallet address is generated or connected.</p></article>
-        <article class="info-card"><h3>Verification information</h3><p>Read about safe verification practices. This demo does not collect identity details or documents.</p></article>
+        <aside class="hero-panel" aria-label="Sample asset categories">
+          <div class="market-card">
+            <div class="mini-head"><span>Topic guide</span><span class="badge info">Learning only</span></div>
+            <div class="price-list">
+              <div class="price-item"><strong><span class="coin btc">₿</span> Blockchain basics</strong><span>Learn</span></div>
+              <div class="price-item"><strong><span class="coin eth">Ξ</span> Digital wallets</strong><span>Learn</span></div>
+              <div class="price-item"><strong><span class="coin usdt">◎</span> Risk awareness</strong><span>Learn</span></div>
+              <div class="price-item"><strong><span class="coin sol">↗</span> Interface design</strong><span>Explore</span></div>
+            </div>
+          </div>
+        </aside>
       </div>
-    </div></section>
-    <section class="section cta-band"><div class="container cta-box"><div><div class="eyebrow">No account required</div><h2>Browse the educational preview.</h2></div><a class="btn btn-primary" href="dashboard.html">Open sample dashboard</a></div></section>
+    </section>
+
+    <section class="section" id="learn">
+      <div class="container">
+        <div class="section-heading"><div class="eyebrow">Explore</div><h2>Designed to explain, not to sell.</h2><p class="muted">This mockup demonstrates how educational content can be presented clearly without fabricated balances, performance, or customer activity.</p></div>
+        <div class="card-grid">
+          <article class="info-card"><h3>Blockchain concepts</h3><p>Learn common terms such as blocks, networks, public addresses, and transaction fees.</p></article>
+          <article class="info-card"><h3>Wallet safety</h3><p>Understand the difference between a public address and a private recovery phrase. Never share a recovery phrase.</p></article>
+          <article class="info-card"><h3>Risk literacy</h3><p>Digital assets can be volatile and may involve substantial risk. This website does not provide investment advice.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container cta-box">
+        <div><div class="eyebrow">About this mockup</div><h2>A visual concept, not a financial service.</h2><p class="muted">There are no accounts, admin tools, identity checks, wallets, deposits, withdrawals, paid plans, or promised returns on this site.</p></div>
+        <a class="btn btn-secondary" href="about.html">Read the demo limits</a>
+      </div>
+    </section>
   </main>
-  <footer class="footer"><div class="container footer-grid">
-    <div><a class="brand" href="index.html"><div class="brand-mark">P</div><div><span>ProfessionalMining</span><small>Educational demo</small></div></a><p class="muted">A simulated interface for educational and design purposes only.</p></div>
-    <div><h4>Explore</h4><p><a href="about.html">About</a></p><p><a href="pricing.html">Plans</a></p><p><a href="support.html">Support</a></p></div>
-    <div><h4>Demo pages</h4><p><a href="dashboard.html">Dashboard</a></p><p><a href="wallets.html">Wallet concepts</a></p><p><a href="transactions.html">Sample activity</a></p></div>
-    <div><h4>Contact</h4><p><a href="mailto:cryptotradinginvestment802@gmail.com">cryptotradinginvestment802@gmail.com</a></p></div>
-  </div></footer>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-grid">
+      <div><a class="brand" href="index.html"><div class="brand-mark">P</div><div><span>ProfessionalMining</span><small>Educational mockup</small></div></a><p class="muted">Fictional interface for educational and design demonstration only.</p></div>
+      <div><h4>Explore</h4><p><a href="#learn">Topics</a></p><p><a href="about.html">About the mockup</a></p></div>
+      <div><h4>Contact</h4><p><a href="mailto:cryptotradinginvestment802@gmail.com">General inquiries</a></p><p class="muted">Do not email passwords, identity documents, wallet recovery phrases, or payment information.</p></div>
+      <div><h4>Important</h4><p class="muted">Not an offer of financial products or services. No user or financial data is collected.</p></div>
+    </div>
+  </footer>
   <script src="assets/app.js"></script>
 </body>
 </html>
